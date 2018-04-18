@@ -1,10 +1,13 @@
 package warmup.nikosstais.atcom.com.devtest2.remote.data.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
 public class SpeakersResponse implements Serializable {
     private boolean success;
+    @SerializedName("response")
     private Speakers speakers;
     private String error;
 
@@ -30,17 +33,5 @@ public class SpeakersResponse implements Serializable {
 
     public void setError(String error) {
         this.error = error;
-    }
-}
-
-class Speakers implements Serializable{
-    private List<Speaker> speakerList;
-
-    public List<Speaker> getSpeakerList() {
-        return speakerList;
-    }
-
-    public void setSpeakerList(List<Speaker> speakerList) {
-        this.speakerList = speakerList;
     }
 }

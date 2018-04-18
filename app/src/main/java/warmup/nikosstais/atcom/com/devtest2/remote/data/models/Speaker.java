@@ -7,6 +7,7 @@ public class Speaker implements Serializable {
     private int rowID;
     private String status;
     private String name;
+    private String surname;
     private String photo;
     private String category;
     private String presentationTitle;
@@ -15,6 +16,15 @@ public class Speaker implements Serializable {
     private String profession;
     private String cV;
     private String presentationDescription;
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     private int order;
     private boolean isActive;
 

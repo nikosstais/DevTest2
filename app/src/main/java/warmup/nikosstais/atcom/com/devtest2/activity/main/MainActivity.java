@@ -12,9 +12,11 @@ import android.view.MenuItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import warmup.nikosstais.atcom.com.devtest2.R;
 import warmup.nikosstais.atcom.com.devtest2.adapters.SectionsPagerAdapter;
 import warmup.nikosstais.atcom.com.devtest2.fragments.OnFragmentInteractionListener;
+import warmup.nikosstais.atcom.com.devtest2.presenters.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener, MainActivityView {
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             tabLayout.getTabAt(i).setIcon(getTabIcon(i));
             tabLayout.getTabAt(i).setText(getString(getTabTitle(i)));
         }
+
+        presenter = new MainPresenter(this, AndroidSchedulers.mainThread());
+        presenter.loadSpeakers();
     }
 
     private int getTabTitle(int pos){

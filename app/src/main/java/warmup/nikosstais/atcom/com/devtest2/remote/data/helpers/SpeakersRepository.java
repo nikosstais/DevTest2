@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import io.reactivex.Single;
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -24,7 +23,7 @@ public class SpeakersRepository {
     }
 
 
-    private Single<SpeakersResponse> getSpeakersResponseCallable(){
+    public Single<SpeakersResponse> getSpeakersRespone(){
         return apiInterface.getSpeakersResponse();
     }
 
