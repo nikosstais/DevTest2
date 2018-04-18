@@ -7,6 +7,6 @@ import android.arch.persistence.room.PrimaryKey;
 public class SpeakersCache {
     @PrimaryKey(autoGenerate = true)
     public Long id;
-    public String dateInserted;
-    public String responseText;
+    public String dateInserted;//checking public properties don't like them
+    public String responseText;//checking public properties don't like them
 }

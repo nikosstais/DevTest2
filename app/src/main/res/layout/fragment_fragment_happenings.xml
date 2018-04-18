@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmentHappenings">
-
-
+    android:orientation="vertical"
+    tools:context=".fragments.FragmentHappenings"
+    >
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -16,13 +16,27 @@
         tools:ignore="ContentDescription"
         android:cropToPadding="true"
         />
-
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:name=".fragments.FragmentHappenings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:scrollbars="vertical"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:context=".activity.main.MainActivity"
+        tools:listitem="@layout/speaker_list_content"
+        />
+</LinearLayout>
+<!--
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentHappenings">
 
-    </LinearLayout>
+    </FrameLayout>
+-->
 
 
-</FrameLayout>
+

@@ -1,10 +1,13 @@
 package warmup.nikosstais.atcom.com.devtest2.remote.data.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.security.Timestamp;
 import java.util.Date;
 
-public class Speaker implements Serializable {
+public class Speaker implements Serializable, Parcelable {
 
     private int rowID;
     private String status;
@@ -19,6 +22,8 @@ public class Speaker implements Serializable {
     private String cV;
     private String presentationDescription;
     private Date presentationDatetime;
+
+    private int mData;
 
     public String getSurname() {
         return surname;
@@ -141,5 +146,29 @@ public class Speaker implements Serializable {
 
     public void setPresentationDatetime(Date presentationDatetime) {
         this.presentationDatetime = presentationDatetime;
+    }
+
+    @Override
+    public int describeContents() {
+        return Parcelable.CONTENTS_FILE_DESCRIPTOR;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
+
+    public static final Parcelable.Creator<Speaker> CREATOR
+            = new Parcelable.Creator<Speaker>() {
+        public Speaker createFromParcel(Parcel in) {
+            return new Speaker(in);
+        }
+
+        public Speaker[] newArray(int size) {
+            return new Speaker[size];
+        }
+    };
+    private Speaker(Parcel in) {
+        mData = in.readInt();
     }
 }

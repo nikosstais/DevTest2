@@ -1,6 +1,5 @@
 package warmup.nikosstais.atcom.com.devtest2.activity.main;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -9,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import warmup.nikosstais.atcom.com.devtest2.R;
 import warmup.nikosstais.atcom.com.devtest2.adapters.SectionsPagerAdapter;
 import warmup.nikosstais.atcom.com.devtest2.fragments.OnFragmentInteractionListener;
@@ -41,7 +40,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+//    @BindView(R.id.recyclerview)
+//    RecyclerView recyclerView;
+
     private MainPresenter presenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +72,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             tabLayout.getTabAt(i).setText(getString(getTabTitle(i)));
         }
 
-        presenter = new MainPresenter(this, AndroidSchedulers.mainThread());
-        presenter.loadSpeakers();
+
+
+//        presenter = new MainPresenter(this, AndroidSchedulers.mainThread(), mSectionsPagerAdapter);
+//        presenter.loadSpeakers();
     }
+
 
     private int getTabTitle(int pos){
         switch(pos){
@@ -121,8 +128,17 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         //could possible set dynamic information to view (per fragment here)
     }
 
-    @Override
-    public void displaySpeakers() {
 
+    public void displayError() {
+        Toast.makeText(this.getApplicationContext(),
+                "Network Error, Please come back later",
+                Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.unsubscribe();
+    }
+
 }
