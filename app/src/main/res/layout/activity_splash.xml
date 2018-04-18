@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorErmisBase"
     tools:context=".activity.splash.SplashActivity">
 
     <ImageView
@@ -19,7 +18,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_ac_logo"
-        tools:ignore="ContentDescription"
-        />
+        app:srcCompat="@mipmap/ic_logo_spash"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/splashText1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="start"
+        android:padding="3sp"
+        android:text="@string/app_company_firstName"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/splashText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+
+        android:gravity="end"
+        android:padding="3sp"
+        android:text="@string/app_company_lastName"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".45" />
 </android.support.constraint.ConstraintLayout>

@@ -13,20 +13,15 @@ import warmup.nikosstais.atcom.com.devtest2.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentAgenda.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link FragmentAgenda#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class FragmentAgenda extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_ITEM_NUMBER = "5";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -38,16 +33,13 @@ public class FragmentAgenda extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment FragmentAgenda.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentAgenda newInstance(String param1, String param2) {
+    public static FragmentAgenda newInstance(int position) {
         FragmentAgenda fragment = new FragmentAgenda();
         Bundle args = new Bundle();
-        args.putString(ARG_ITEM_NUMBER, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_ITEM_NUMBER, position);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,8 +48,8 @@ public class FragmentAgenda extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_ITEM_NUMBER);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+//            mParam1 = getArguments().getString(ARG_ITEM_NUMBER);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -69,9 +61,9 @@ public class FragmentAgenda extends Fragment {
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(int position) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction(position);
         }
     }
 
@@ -92,18 +84,4 @@ public class FragmentAgenda extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
