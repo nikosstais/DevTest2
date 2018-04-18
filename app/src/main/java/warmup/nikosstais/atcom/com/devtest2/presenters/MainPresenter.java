@@ -40,7 +40,7 @@ public class MainPresenter {
 
                             @Override
                             public void onError(Throwable e) {
-
+                                e.printStackTrace();
                             }
                         }));
     }

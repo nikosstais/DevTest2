@@ -1,6 +1,8 @@
 package warmup.nikosstais.atcom.com.devtest2.remote.data.models;
 
 import java.io.Serializable;
+import java.security.Timestamp;
+import java.util.Date;
 
 public class Speaker implements Serializable {
 
@@ -16,6 +18,7 @@ public class Speaker implements Serializable {
     private String profession;
     private String cV;
     private String presentationDescription;
+    private Date presentationDatetime;
 
     public String getSurname() {
         return surname;
@@ -130,5 +133,13 @@ public class Speaker implements Serializable {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public Date getPresentationDatetime() {
+        return presentationDatetime;
+    }
+
+    public void setPresentationDatetime(Date presentationDatetime) {
+        this.presentationDatetime = presentationDatetime;
     }
 }
